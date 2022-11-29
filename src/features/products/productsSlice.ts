@@ -1,12 +1,11 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { ProductProps, ProductsState } from './products.types';
+import { ProductsState } from './products.types';
 import { fetchProducts } from './productsAPI';
 
 const initialState: ProductsState = {
   collection: [],
   status: 'idle',
-  selectedProducts: [],
 };
 
 export const getProductsAsync = createAsyncThunk(
@@ -20,11 +19,7 @@ export const getProductsAsync = createAsyncThunk(
 const productsSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {
-    selectProduct: (state, action: PayloadAction<ProductProps>) => {
-      console.log(action.payload);
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getProductsAsync.pending, (state) => {
@@ -40,5 +35,4 @@ const productsSlice = createSlice({
   },
 });
 
-export const { selectProduct } = productsSlice.actions;
 export default productsSlice.reducer;

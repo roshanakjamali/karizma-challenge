@@ -5,8 +5,10 @@ import { ItemList } from './ListIem';
 
 const List: React.FC<{ collection: ItemProps[] | [] }> = ({ collection }) => {
   return (
-    <MUIList sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {collection.map(ItemList)}
+    <MUIList>
+      {collection.map(({ key, ...props }) => (
+        <ItemList key={key} {...props} />
+      ))}
     </MUIList>
   );
 };

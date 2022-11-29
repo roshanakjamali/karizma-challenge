@@ -15,6 +15,5 @@ export interface ProductProps {
 
 export interface ProductsState {
   collection: ProductProps[];
-  selectedProducts: ProductProps[] | [];
   status: 'idle' | 'loading' | 'failed';
 }

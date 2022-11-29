@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { getProductsAsync } from '../../features/products/productsSlice';
+import { addToFavorites } from '../../features/favorites/favoritesSlice';
 
 import { List } from '../List';
 import Loading from '../Loading';
@@ -24,10 +25,12 @@ function ProductsList() {
     <Error message='Try Again' />
   ) : (
     <List
-      collection={products.map(({ title, description, image }) => ({
+      collection={products.map(({ title, description, image, id }) => ({
         title,
         description,
         avatar: image,
+        key: id,
+        clickHandler: () => dispatch(addToFavorites(title)),
       }))}
     />
   );

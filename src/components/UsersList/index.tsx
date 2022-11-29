@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { getUsersAsync } from '../../features/users/usersSlice';
+import { addToFavorites } from '../../features/favorites/favoritesSlice';
 
 import { List } from '../../components/List';
 import Loading from '../../components/Loading';
@@ -24,9 +25,11 @@ function UserList() {
     <Error message='Try Again' />
   ) : (
     <List
-      collection={users.map(({ username, email }) => ({
+      collection={users.map(({ username, email, id }) => ({
         title: username,
         description: email,
+        key: id,
+        clickHandler: () => dispatch(addToFavorites(username)),
       }))}
     />
   );
