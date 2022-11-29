@@ -25,6 +25,7 @@ function UserList() {
     <Error message='Try Again' />
   ) : (
     <List
+      searchOn='title'
       collection={users.map(({ username, email, id }) => ({
         title: username,
         description: email,

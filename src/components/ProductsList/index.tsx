@@ -25,6 +25,7 @@ function ProductsList() {
     <Error message='Try Again' />
   ) : (
     <List
+      searchOn='description'
       collection={products.map(({ title, description, image, id }) => ({
         title,
         description,
