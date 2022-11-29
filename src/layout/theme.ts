@@ -9,6 +9,15 @@ const theme = createTheme({
         },
       }),
     },
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          minHeight: '100vh',
+          display: 'flex',
+          justifyContent: 'stretch',
+        },
+      },
+    },
   },
 });
 export default theme;
