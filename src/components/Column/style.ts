@@ -6,5 +6,5 @@ export const CustomColumn = styled(Paper)(({ theme }) => ({
   maxHeight: `calc(100vh - ${theme.spacing(4)})`,
   overflow: 'auto',
   margin: theme.spacing(2, 0),
-  padding: theme.spacing(4),
+  padding: theme.spacing(0, 2),
 }));

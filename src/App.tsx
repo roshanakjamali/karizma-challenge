@@ -1,6 +1,7 @@
 import Grid from '@mui/material/Grid';
 
 import Column from './components/Column';
+import { ProductsList } from './components/ProductsList';
 import { UserList } from './components/UsersList';
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
         </Column>
       </Grid>
       <Grid item xs={12} md={4}>
-        <Column>Second</Column>
+        <Column>
+          <ProductsList />
+        </Column>
       </Grid>
       <Grid item xs={12} md={4}>
         <Column>Third</Column>
