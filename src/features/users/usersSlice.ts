@@ -1,12 +1,11 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { UserProps, UsersState } from './users.types';
+import { UsersState } from './users.types';
 import { fetchUsers } from './usersAPI';
 
 const initialState: UsersState = {
   collection: [],
   status: 'idle',
-  selectedUsers: [],
 };
 
 export const getUsersAsync = createAsyncThunk('users/fetchUsers', async () => {
@@ -17,11 +16,7 @@ export const getUsersAsync = createAsyncThunk('users/fetchUsers', async () => {
 const usersSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {
-    selectUser: (state, action: PayloadAction<UserProps>) => {
-      console.log(action.payload);
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getUsersAsync.pending, (state) => {
@@ -37,5 +32,4 @@ const usersSlice = createSlice({
   },
 });
 
-export const { selectUser } = usersSlice.actions;
 export default usersSlice.reducer;

@@ -29,6 +29,5 @@ export interface UserProps {
 
 export interface UsersState {
   collection: UserProps[];
-  selectedUsers: UserProps[] | [];
   status: 'idle' | 'loading' | 'failed';
 }
